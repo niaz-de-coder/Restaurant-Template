@@ -1,423 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niaz De Coder · red flavour</title>
-  <!-- Bootstrap 5 + Icons + primary red theme -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <!-- Google Font (optional modern touch) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&display=swap" rel="stylesheet">
-  <style>
-    * {
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-    }
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 80px;  /* fixed navbar height + gap */
-    }
-    body {
-      background-color: #fffafc;  /* soft white with subtle red warmth */
-      color: #1e1e1e;
-    }
-    /* RED ACCENTS — modern light theme with pops of red */
-    .navbar {
-      background-color: #ffffff !important;
-      box-shadow: 0 8px 20px rgba(220, 20, 60, 0.08);
-      border-bottom: 3px solid #e63946;
-    }
-    .navbar .nav-link {
-      color: #2c2c2c;
-      font-weight: 500;
-      margin: 0 0.25rem;
-      transition: 0.2s;
-      border-radius: 30px;
-    }
-    .navbar .nav-link:hover {
-      color: #e63946;
-      background-color: #ffe9ec;
-    }
-    .navbar .nav-link.active {
-      color: #e63946 !important;
-      font-weight: 600;
-    }
-    .navbar-brand img {
-      height: 48px;
-      width: auto;
-      transition: 0.15s;
-      border-radius: 12px;
-    }
-    .btn-red {
-      background-color: #e63946;
-      color: white;
-      border-radius: 40px;
-      padding: 0.5rem 1.5rem;
-      font-weight: 500;
-      border: none;
-      transition: 0.2s;
-    }
-    .btn-red:hover {
-      background-color: #b71c2c;
-      color: white;
-      box-shadow: 0 10px 20px rgba(230, 57, 70, 0.25);
-    }
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      border-left: 10px solid #e63946;
-      padding-left: 1.5rem;
-      margin-bottom: 2.5rem;
-      color: #1e1e1e;
-    }
-    .section-title span {
-      color: #e63946;
-    }
-    .card {
-      border: none;
-      border-radius: 32px;
-      background: #ffffff;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
-      transition: 0.25s ease;
-      overflow: hidden;
-      backdrop-filter: blur(2px);
-    }
-    .card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 25px 40px rgba(230, 57, 70, 0.15);
-    }
-    .card-img-top {
-      height: 220px;
-      object-fit: cover;
-      border-bottom: 2px solid rgba(230, 57, 70, 0.2);
-    }
-    .badge-red {
-      background-color: #e63946;
-      color: white;
-      font-weight: 500;
-      padding: 0.4rem 0.8rem;
-      border-radius: 40px;
-    }
-    .carousel-item img {
-      height: 500px;
-      object-fit: cover;
-      filter: brightness(0.93) saturate(1.1);
-    }
-    @media (max-width: 768px) {
-      .carousel-item img { height: 280px; }
-      .section-title { font-size: 2rem; }
-    }
-    /* about stats */
-    .stat-box {
-      background: white;
-      border-radius: 48px;
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 10px 25px #fce4e6;
-      border: 1px solid #ffe6e9;
-    }
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #e63946;
-      line-height: 1;
-    }
-    /* form & review */
-    .form-control, .form-select {
-      border-radius: 40px;
-      border: 1.5px solid #f1d3d6;
-      padding: 0.8rem 1.2rem;
-      background-color: #ffffff;
-    }
-    .form-control:focus, .form-select:focus {
-      border-color: #e63946;
-      box-shadow: 0 0 0 0.25rem rgba(230, 57, 70, 0.25);
-    }
-    .star-rating i {
-      font-size: 2rem;
-      color: #ffb8b8;
-      cursor: pointer;
-      transition: 0.1s;
-    }
-    .star-rating i.active {
-      color: #e63946;
-      font-weight: bold;
-    }
-    /* footer */
-    .footer-modern {
-      background-color: #1e1e1e;
-      color: #f0d4d6;
-      border-top: 6px solid #e63946;
-      padding: 3rem 0 2rem;
-    }
-    .footer-modern a {
-      color: #f8b4b4;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-    .footer-modern a:hover {
-      color: #ffffff;
-    }
-    .social-icon {
-      background-color: #333;
-      color: white;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 10px;
-      transition: 0.2s;
-    }
-    .social-icon:hover {
-      background-color: #e63946;
-      transform: scale(1.1);
-    }
-    /* location card */
-    .branch-card {
-      background: white;
-      border-radius: 28px;
-      padding: 1.5rem;
-      height: 100%;
-      border-left: 5px solid #e63946;
-      box-shadow: 0 8px 20px rgba(230,57,70,0.05);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Red | Restaurant Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- ================= FIXED NAVBAR (LOGO LEFT, LINKS RIGHT) ================= -->
-<nav class="navbar navbar-expand-lg fixed-top py-2">
-  <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="assets/logo.jpeg" alt="Niaz De Coder logo" onerror="this.src='https://via.placeholder.com/150x50?text=LOGO'">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="filter: hue-rotate(340deg);"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fw-medium">
-        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="#menu">Menu</a></li>
-        <li class="nav-item"><a class="nav-link" href="#offers">Offers</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#review">Review</a></li>
-        <li class="nav-item"><a class="nav-link" href="#location">Location</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+    <header>
+        <nav id="navbar">
+            <div class="logo">GOURMET<span>RED</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#branches">Branches</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="book.html" class="book-btn">Book Now</a>
+        </nav>
+    </header>
 
-<!-- ================= HOME CAROUSEL (auto sliding left) ================= -->
-<section id="home" class="pt-5 mt-3">
-  <div id="bannerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3500">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="assets/banner1.png" class="d-block w-100" alt="banner1" onerror="this.src='https://via.placeholder.com/1600x500?text=BANNER+1'">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/banner2.png" class="d-block w-100" alt="banner2" onerror="this.src='https://via.placeholder.com/1600x500?text=BANNER+2'">
-      </div>
-      <div class="carousel-item">
-        <img src="assets/banner3.png" class="d-block w-100" alt="banner3" onerror="this.src='https://via.placeholder.com/1600x500?text=BANNER+3'">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#bannerCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#bannerCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</section>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Experience the Art of <span class="highlight">Fine Dining</span></h1>
+            <p>From our kitchen to your heart, we serve passion on every plate.</p>
+            <a href="#menu" class="cta-main">View Menu</a>
+        </div>
+    </section>
 
-<!-- ================= MENU section (9 items) ================= -->
-<section id="menu" class="container py-5">
-  <div class="d-flex justify-content-between align-items-center">
-    <h2 class="section-title">OUR <span>MENU</span></h2>
-    <a href="menu.html" class="btn btn-red">See all <i class="bi bi-arrow-right"></i></a>
-  </div>
-  <div class="row g-4">
-    <!-- 9 cards as per spec: item1.jpg, item2.jpg, then 7 x item3.jpg -->
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item1.jpg" class="card-img-top" alt="item1" onerror="this.src='https://via.placeholder.com/400x250?text=Pizza'"><div class="card-body"><h5 class="card-title fw-bold">Margherita Pizza</h5><p class="card-text text-secondary">Classic basil, mozzarella</p><span class="badge-red">$12.90</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item2.webp" class="card-img-top" alt="item2" onerror="this.src='https://via.placeholder.com/400x250?text=Burger'"><div class="card-body"><h5 class="card-title fw-bold">BBQ Burger</h5><p class="card-text text-secondary">Beef patty, crispy onion</p><span class="badge-red">$15.40</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item3.webp" class="card-img-top" alt="item3" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Creamy Pasta</h5><p class="card-text text-secondary">Alfredo sauce, parmesan</p><span class="badge-red">$13.20</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item4.webp" class="card-img-top" alt="item4" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Spaghetti Carbonara</h5><p class="card-text text-secondary">Egg, pancetta, pecorino</p><span class="badge-red">$14.50</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item5.webp" class="card-img-top" alt="item5" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Lasagna al Forno</h5><p class="card-text text-secondary">Ragu, béchamel</p><span class="badge-red">$16.20</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item6.webp" class="card-img-top" alt="item6" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Ravioli Ricotta</h5><p class="card-text text-secondary">Spinach filling, sage butter</p><span class="badge-red">$15.90</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item7.webp" class="card-img-top" alt="item7" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Fettuccine Alfredo</h5><p class="card-text text-secondary">Creamy parmesan</p><span class="badge-red">$13.90</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item8.webp" class="card-img-top" alt="item8" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Penne Arrabbiata</h5><p class="card-text text-secondary">Spicy tomato, garlic</p><span class="badge-red">$12.50</span></div></div></div>
-    <div class="col-sm-6 col-lg-4"><div class="card h-100"><img src="assets/item9.webp" class="card-img-top" alt="item9" onerror="this.src='https://via.placeholder.com/400x250?text=Pasta'"><div class="card-body"><h5 class="card-title fw-bold">Mac & Cheese</h5><p class="card-text text-secondary">Cheddar crust, truffle oil</p><span class="badge-red">$14.20</span></div></div></div>
-  </div>
-</section>
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Our Story</h2>
+            <p>Founded on a love for authentic flavors, Gourmet Red combines traditional recipes with a modern culinary twist. Every ingredient is hand-picked to ensure the highest quality for our guests.</p>
+        </div>
+    </section>
 
-<!-- ================= OFFERS section (3 posters) ================= -->
-<section id="offers" class="container py-4">
-  <div class="d-flex justify-content-between align-items-center">
-    <h2 class="section-title">HOT <span>OFFERS</span></h2>
-    <a href="offers.html" class="btn btn-red">See all <i class="bi bi-arrow-right"></i></a>
-  </div>
-  <div class="row g-4">
-    <div class="col-md-4"><div class="card"><img src="assets/offer1.jpg" class="card-img-top" alt="offer1" onerror="this.src='https://via.placeholder.com/400x250?text=Combo1'"><div class="card-body"><h5>Family Feast</h5><p>2 pizzas + 4 sides</p><span class="badge-red">$29.99</span></div></div></div>
-    <div class="col-md-4"><div class="card"><img src="assets/offer2.jpg" class="card-img-top" alt="offer2" onerror="this.src='https://via.placeholder.com/400x250?text=Combo2'"><div class="card-body"><h5>Pasta Mania</h5><p>any pasta + drink</p><span class="badge-red">$18.90</span></div></div></div>
-    <div class="col-md-4"><div class="card"><img src="assets/offer3.jpg" class="card-img-top" alt="offer3" onerror="this.src='https://via.placeholder.com/400x250?text=Combo3'"><div class="card-body"><h5>Burger Duo</h5><p>2 burgers + fries</p><span class="badge-red">$22.50</span></div></div></div>
-  </div>
-</section>
+    <section id="menu" class="section bg-light">
+        <div class="container">
+            <h2>Signature Dishes</h2>
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <h3>Classic Steak</h3>
+                    <p>Premium beef grilled to perfection.</p>
+                    <span class="price">$25.00</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Pasta Rosso</h3>
+                    <p>Handmade pasta with spicy tomato sauce.</p>
+                    <span class="price">$18.00</span>
+                </div>
+                <div class="menu-item">
+                    <h3>Spicy Wings</h3>
+                    <p>Crispy wings with our secret red glaze.</p>
+                    <span class="price">$12.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= ABOUT section ================= -->
-<section id="about" class="container py-5">
-  <h2 class="section-title">ABOUT <span>US</span></h2>
-  <div class="row align-items-center g-5">
-    <div class="col-lg-6">
-      <h3 class="fw-bold" style="color:#e63946;">Niaz De Coder Demo Restaurant</h3>
-      <p class="lead">Founded with love for bold flavours and digital precision. We blend traditional recipes with modern presentation. Every dish tells a story of passion.</p>
-      <div class="row mt-5">
-        <div class="col-6"><div class="stat-box"><div class="stat-number">15k+</div><span>orders served</span></div></div>
-        <div class="col-6"><div class="stat-box"><div class="stat-number">48</div><span>signature dishes</span></div></div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <img src="assets/banner1.jpg" class="img-fluid rounded-5 shadow" alt="restaurant interior" onerror="this.src='https://via.placeholder.com/600x400?text=restaurant'">
-    </div>
-  </div>
-</section>
+    <section id="reviews" class="section">
+        <div class="container">
+            <h2>What Guests Say</h2>
+            <div class="review-card">
+                <p>"The best steak I've had in years. The atmosphere is cozy and the service is top-notch!"</p>
+                <h4>- Sarah Johnson</h4>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= REVIEW section (form with email, star, comment) ================= -->
-<section id="review" class="container py-5">
-  <h2 class="section-title">GUEST <span>REVIEW</span></h2>
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card p-4 p-md-5" style="border-radius: 48px;">
-        <form id="reviewForm">
-          <div class="mb-4">
-            <label class="form-label fw-semibold">Email address</label>
-            <input type="email" class="form-control" placeholder="foodie@example.com" required>
-          </div>
-          <div class="mb-4">
-            <label class="form-label fw-semibold">Rating (1 to 5)</label>
-            <select class="form-select" id="starSelect">
-              <option value="5">⭐ 5 - Excellent</option>
-              <option value="4">⭐ 4 - Very good</option>
-              <option value="3">⭐ 3 - Average</option>
-              <option value="2">⭐ 2 - Poor</option>
-              <option value="1">⭐ 1 - Terrible</option>
-            </select>
-          </div>
-          <div class="mb-4">
-            <label class="form-label fw-semibold">Your comment</label>
-            <textarea class="form-control" rows="3" placeholder="Delicious experience ..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-red w-100">Submit review <i class="bi bi-send"></i></button>
-        </form>
-        <p class="text-success mt-3 text-center" id="reviewSuccess" style="display:none;">🙏 thank you for your feedback!</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="branches" class="section bg-light">
+        <div class="container">
+            <h2>Our Locations</h2>
+            <div class="branch-list">
+                <p><strong>Downtown:</strong> 123 Culinary Ave, City Center</p>
+                <p><strong>Uptown:</strong> 456 Flavor Blvd, North District</p>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= LOCATION (6 branches) ================= -->
-<section id="location" class="container py-5">
-  <h2 class="section-title">OUR <span>BRANCHES</span></h2>
-  <div class="row g-4">
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Gulshan</h5><p class="mb-1">Dhaka, Dhaka</p><small>House 23, Rd 12, Gulshan-1</small></div></div>
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Banani</h5><p class="mb-1">Dhaka, Dhaka</p><small>Plot 4, Kemal Ataturk Ave</small></div></div>
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Uttara</h5><p class="mb-1">Dhaka, Dhaka</p><small>Road 7, Sector 3, House 15</small></div></div>
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Chittagong</h5><p class="mb-1">Chittagong, Chittagong</p><small>GEC Circle, 5th floor</small></div></div>
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Sylhet</h5><p class="mb-1">Sylhet, Sylhet</p><small>Zindabazar, Amberkhana</small></div></div>
-    <div class="col-md-6 col-lg-4"><div class="branch-card"><h5 class="fw-bold"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Khulna</h5><p class="mb-1">Khulna, Khulna</p><small>Sher e Bangla Rd, opposite circuit house</small></div></div>
-  </div>
-</section>
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <form id="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5"></textarea>
+                <button type="submit" class="cta-main">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<!-- ================= CONTACT (social + phone) ================= -->
-<section id="contact" class="container py-5">
-  <h2 class="section-title">GET IN <span>TOUCH</span></h2>
-  <div class="row align-items-center bg-white p-5 rounded-5 shadow-sm">
-    <div class="col-md-6">
-      <h4 class="fw-bold">📞 +880 1234 567890</h4>
-      <p class="text-secondary mb-4">24/7 hotline – we love to hear your voice</p>
-      <div class="d-flex flex-wrap">
-        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="social-icon"><i class="bi bi-whatsapp"></i></a>
-        <a href="#" class="social-icon"><i class="bi bi-telephone-fill"></i></a>
-      </div>
-    </div>
-    <div class="col-md-6 text-md-end mt-4 mt-md-0">
-      <img src="assets/logo.png" alt="footer logo" style="max-height:80px;" onerror="this.src='https://via.placeholder.com/150x80?text=Niaz'">
-    </div>
-  </div>
-</section>
+    <footer>
+        <p>&copy; 2026 Gourmet Red. All Rights Reserved.</p>
+    </footer>
 
-<!-- ================= MODERN FOOTER ================= -->
-<footer class="footer-modern">
-  <div class="container">
-    <div class="row gy-4">
-      <div class="col-md-4">
-        <h5 class="text-white">Niaz De Coder</h5>
-        <p>Demo Restaurant · since 2020<br>red & light perfection</p>
-      </div>
-      <div class="col-md-2">
-        <h6>Explore</h6>
-        <ul class="list-unstyled"><li><a href="#home">Home</a></li><li><a href="#menu">Menu</a></li><li><a href="#offers">Offers</a></li></ul>
-      </div>
-      <div class="col-md-2">
-        <h6>Info</h6>
-        <ul class="list-unstyled"><li><a href="#about">About</a></li><li><a href="#review">Review</a></li><li><a href="#location">Locations</a></li></ul>
-      </div>
-      <div class="col-md-4 text-md-end">
-        <p>© 2025 — Niaz De Coder <br><span class="text-secondary">crafted with <i class="bi bi-heart-fill text-danger"></i> for food lovers</span></p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Bootstrap JS and simple interactive star rating (UI enhancement) + smooth active nav highlight on scroll -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  // optional: show thank you message on review submit (prevent page reload)
-  document.getElementById('reviewForm')?.addEventListener('submit', function(e) {
-    e.preventDefault();
-    document.getElementById('reviewSuccess').style.display = 'block';
-    setTimeout(() => document.getElementById('reviewSuccess').style.display = 'none', 3000);
-    this.reset();
-  });
-
-  // highlight active nav link on scroll (UX touch)
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    let current = '';
-    const scrollPos = window.scrollY + 120; // offset
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionBottom = sectionTop + section.offsetHeight;
-      if (scrollPos >= sectionTop && scrollPos < sectionBottom) {
-        current = section.getAttribute('id');
-      }
-    });
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-      link.classList.remove('active');
-      const href = link.getAttribute('href')?.substring(1); // remove #
-      if (href === current) link.classList.add('active');
-    });
-  });
-
-  // tiny star rating demo (optional, we already have select but we can add interactive stars for fun)
-  // (pure ui, not affecting submission) — just a visual gimmick to match modern ui
-  const starContainer = document.createElement('div');
-  starContainer.className = 'star-rating mb-3';
-  starContainer.innerHTML = '<label class="form-label fw-semibold">Tap to rate (visual)</label><div id="starDemo">⭐⭐⭐⭐⭐</div>';
-  const selectParent = document.getElementById('starSelect')?.parentNode;
-  if(selectParent) selectParent.insertAdjacentElement('afterend', starContainer);
-  document.querySelectorAll('#starDemo').forEach(el => {
-    el.style.fontSize = '2rem'; el.style.letterSpacing = '6px'; el.style.cursor = 'pointer';
-    el.addEventListener('click', (e) => { if(e.target) alert('star rating demo — you can use the select above :)'); });
-  });
-</script>
-<!-- ensure images without assets show placeholder, but keep structure -->
+    <script src="script.js"></script>
 </body>
 </html>
