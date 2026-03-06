@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>GourmetBite | Taste the Excellence</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
         tailwind.config = {
@@ -16,7 +14,7 @@
                     colors: {
                         "primary": "#ea2a33",
                         "background-light": "#f8f6f6",
-                        "background-dark": "#211111",
+                        "background-dark": "#1a0f0f",
                     },
                     fontFamily: {
                         "display": ["Plus Jakarta Sans", "sans-serif"]
@@ -31,25 +29,35 @@
             },
         }
     </script>
-<style>
+<style type="text/tailwindcss">
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: "Plus Jakarta Sans", sans-serif;
         }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased">
 <div class="relative flex min-h-screen flex-col">
-<!-- Navigation -->
-<header class="fixed top-0 z-50 w-full border-b border-primary/10 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md">
+<header class="fixed top-0 z-50 w-full border-b border-primary/10 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md">
 <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-12">
-<div class="flex items-center gap-2 text-primary">
+<a class="flex items-center gap-2 text-primary" href="#home">
 <span class="material-symbols-outlined text-3xl">restaurant</span>
 <h2 class="text-xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100">GourmetBite</h2>
-</div>
+</a>
 <nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-semibold hover:text-primary transition-colors" href="#home">Home</a>
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#about">About</a>
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#menu">Menu</a>
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#reviews">Reviews</a>
@@ -57,44 +65,43 @@
 <a class="text-sm font-semibold hover:text-primary transition-colors" href="#contact">Contact</a>
 </nav>
 <div class="flex items-center gap-4">
-<button class="rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95">
-                        Book Now
-                    </button>
+<a class="rounded-lg bg-primary px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all active:scale-95" href="#contact">
+                    Book Now
+                </a>
 </div>
 </div>
 </header>
-<main class="flex-grow pt-20">
-<!-- Hero Section -->
-<section class="relative px-6 py-12 lg:px-12 lg:py-24">
+<main class="flex-grow">
+<section class="relative px-6 py-24 lg:px-12 lg:py-32 bg-background-light dark:bg-background-dark overflow-hidden" id="home">
 <div class="mx-auto max-w-7xl">
 <div class="grid items-center gap-12 lg:grid-cols-2">
 <div class="flex flex-col gap-8 order-2 lg:order-1">
 <div class="flex flex-col gap-4">
 <span class="inline-block w-fit rounded-full bg-primary/10 px-4 py-1 text-sm font-bold text-primary">
-                                    Premium Dining Experience
-                                </span>
+                                Premium Dining Experience
+                            </span>
 <h1 class="text-5xl font-extrabold leading-[1.1] tracking-tight text-slate-900 dark:text-slate-100 md:text-6xl lg:text-7xl">
-                                    Taste the <br/>
+                                Taste the <br/>
 <span class="text-primary">Excellence</span>
 </h1>
 <p class="max-w-lg text-lg text-slate-600 dark:text-slate-400">
-                                    Experience the finest culinary creations crafted with passion and the freshest seasonal ingredients. Join us for an unforgettable dining journey where every plate tells a story.
-                                </p>
+                                Experience the finest culinary creations crafted with passion and the freshest seasonal ingredients. Join us for an unforgettable dining journey where every plate tells a story.
+                            </p>
 </div>
 <div class="flex flex-wrap gap-4">
-<button class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/25 hover:bg-primary/90 transition-all active:scale-95">
-                                    Reserve a Table
-                                </button>
-<button class="flex items-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 py-4 text-base font-bold transition-all hover:bg-slate-50 dark:hover:bg-slate-800">
+<a class="rounded-xl bg-primary px-8 py-4 text-base font-bold text-white shadow-xl shadow-primary/25 hover:bg-primary/90 transition-all active:scale-95 text-center" href="#contact">
+                                Reserve a Table
+                            </a>
+<a class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 py-4 text-base font-bold transition-all hover:bg-slate-50 dark:hover:bg-slate-800" href="#menu">
 <span class="material-symbols-outlined">menu_book</span>
-                                    View Menu
-                                </button>
+                                View Menu
+                            </a>
 </div>
 </div>
 <div class="relative order-1 lg:order-2">
 <div class="absolute -right-4 -top-4 z-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl"></div>
 <div class="relative z-10 overflow-hidden rounded-3xl shadow-2xl">
-<img alt="Gourmet dish presentation" class="h-[400px] w-full object-cover md:h-[500px] lg:h-[600px]" data-alt="High-quality gourmet plated dish on a dark table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtl36kP8q8f0QYlP6YHvqdoJ4GRzbdLJWPS7MKVk-LKDVc_a_ATn570emE6Pd3vnqt8Anoxh8ghAuBv-9t_83RrLQwvx-z-ZCYKsO-fQeo5A5e17Gq6yk0DgA6ZSh_f1k3ivuBZWnI6DPP6kpl896YeJoA3gTgjywEmnonKYjgeWzltRT3hg4FJPEyw_zaQBSZoY8e5iAHff5Xayu6OsqaEI3R-NddYUszD_ctnaFav2YFF5PmCH4e7CfJYF01usfJgq81ucT5"/>
+<img alt="Gourmet dish presentation" class="h-[400px] w-full object-cover md:h-[500px] lg:h-[600px]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtl36kP8q8f0QYlP6YHvqdoJ4GRzbdLJWPS7MKVk-LKDVc_a_ATn570emE6Pd3vnqt8Anoxh8ghAuBv-9t_83RrLQwvx-z-ZCYKsO-fQeo5A5e17Gq6yk0DgA6ZSh_f1k3ivuBZWnI6DPP6kpl896YeJoA3gTgjywEmnonKYjgeWzltRT3hg4FJPEyw_zaQBSZoY8e5iAHff5Xayu6OsqaEI3R-NddYUszD_ctnaFav2YFF5PmCH4e7CfJYF01usfJgq81ucT5"/>
 </div>
 <div class="absolute -bottom-6 -left-6 z-20 hidden rounded-2xl bg-white p-6 shadow-xl dark:bg-slate-900 sm:block">
 <div class="flex items-center gap-4">
@@ -113,15 +120,13 @@
 </div>
 </div>
 </section>
-<!-- Features Section -->
-<section class="bg-white py-24 dark:bg-slate-950/50">
+<section class="bg-white py-24 dark:bg-slate-950/50" id="about">
 <div class="mx-auto max-w-7xl px-6 lg:px-12">
 <div class="mb-16 flex flex-col items-center text-center">
 <h2 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl">Why Dine With Us?</h2>
 <p class="max-w-2xl text-slate-600 dark:text-slate-400">Discover what makes GourmetBite the premier destination for food enthusiasts and families alike.</p>
 </div>
 <div class="grid gap-8 md:grid-cols-3">
-<!-- Card 1 -->
 <div class="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-8 transition-all hover:border-primary/20 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
 <span class="material-symbols-outlined">eco</span>
@@ -129,7 +134,6 @@
 <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Fresh Ingredients</h3>
 <p class="text-slate-600 dark:text-slate-400">We source only the finest seasonal produce directly from local sustainable farms every single morning.</p>
 </div>
-<!-- Card 2 -->
 <div class="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-8 transition-all hover:border-primary/20 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
 <span class="material-symbols-outlined">skillet</span>
@@ -137,7 +141,6 @@
 <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Expert Chefs</h3>
 <p class="text-slate-600 dark:text-slate-400">Our award-winning culinary team brings decades of international experience to your table.</p>
 </div>
-<!-- Card 3 -->
 <div class="group flex flex-col gap-4 rounded-2xl border border-slate-100 bg-background-light p-8 transition-all hover:border-primary/20 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900">
 <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-transform group-hover:scale-110">
 <span class="material-symbols-outlined">chair</span>
@@ -148,20 +151,235 @@
 </div>
 </div>
 </section>
-<!-- Call to Action Banner -->
-<section class="px-6 py-20 lg:px-12">
+<section class="bg-background-light py-24 dark:bg-background-dark" id="menu">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="mb-16 flex flex-col items-center text-center">
+<span class="text-primary font-bold tracking-widest uppercase text-sm mb-2">Our Specialties</span>
+<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl">Chef's Recommendations</h2>
+<div class="h-1 w-20 bg-primary rounded-full"></div>
+</div>
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<div class="h-48 overflow-hidden">
+<img alt="Special Dish" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTrfPnw4HpRIap35iisvuKoTrnHgl6PQzO3OjY_uo4SwARpoxSqjsEEjXNRG7tf0rHC44aDD7RfXZ0tfhEma8L7VWXBIgsQBvv-ujjAcKSvPYdc0ZKww6v_UZ9sUxUOLdzXAJv68z8vVJXjOkTO3WyZqZhLkDbDh9ziQKjExysxiShUJwqI3BG04dCKf4flw4Js9auZKVMiXv6wnfpvV7noXlV79VFl0zPuGNPV2AM4lzHnnHp6ulDzo3agoeGHTu13Nv0nt7V"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-xl">Signature Salmon</h4>
+<span class="text-primary font-bold">$28</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Pan-seared Atlantic salmon with roasted asparagus and lemon butter sauce.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                Order Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<div class="h-48 overflow-hidden">
+<img alt="Special Dish" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtgvHfW0a00rPjnAibQx8RLnmTWsVtL583rqMHIiifTw-Rr0jJaCtGyGW4grg8epgSdNKhJh1j5bCqd-kZHhyprZDW2GnkV_BrMpkxxyjoUdNkdEitKiCD5Wa-SjaqN-F6jY5kTV9GkOoDGJ0nctbMVKi2-s6wbur7DpPYqC3fFjpcxKk3qvPoV8hmchEGxW1juaubEtGGDPQAmKTFxv6ZUlXP44XhG72O4oga60y5kFIAIRselkcAvmgKhFwa4VT19cnLKbSB"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-xl">Truffle Pizza</h4>
+<span class="text-primary font-bold">$24</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Wild mushrooms, mozzarella, fresh arugula, and premium white truffle oil.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                Order Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<div class="h-48 overflow-hidden">
+<img alt="Special Dish" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJxNyoYf9ON_jqmjoK4FSFsUweGzZzgiEM4cjx7Ro3lxfGJkEzUNoWFrG7IDXB_rEjPFrhu0slG-lBUBOQfWGuLXnHwfMu2-mkJB71QLW5d5amBjSm2dN8A6JnZx2o-kUEAAGT2ExLQgFVbwLrGO5fjL8nfZxxiPCHMexV7-7J_6fcX_GEtg3nL9uT4DfmQAtxKEmE501pykQY-2FH7wjv8EGAu2itC0VOoRD_q-5wlHl3TRbxoKJbk7jPa7-mqrV110kTpoPF"/>
+</div>
+<div class="p-6">
+<div class="flex justify-between items-start mb-2">
+<h4 class="font-bold text-xl">Ribeye Steak</h4>
+<span class="text-primary font-bold">$42</span>
+</div>
+<p class="text-slate-600 dark:text-slate-400 text-sm mb-4">Dry-aged steak served with garlic mash and red wine reduction.</p>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:gap-2 transition-all">
+                                Order Now <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-24 dark:bg-slate-950/50 overflow-hidden" id="reviews">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="mb-16 flex flex-col items-center text-center">
+<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl">What Our Diners Say</h2>
+<div class="flex gap-1 text-primary">
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-8 pb-8 no-scrollbar snap-x snap-mandatory">
+<div class="min-w-[320px] md:min-w-[400px] snap-center bg-background-light dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
+<p class="italic text-slate-600 dark:text-slate-300 mb-6">"The best culinary experience I've had in years. The truffle pizza is to die for, and the service is impeccable."</p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbcP3bH9rKBorfNAzNSpuTtcS2YpRkIBY9ZBU_7FcS4ru0vEeGrTeSnhB-pe8VagQBHuAN4r12TZgVXo3gBsmT9ROC0oq4qYQ9f4MYAWpeYTYX5YqXxKWSmaLq7FFo0Q_o_oD8KYnBjEbZVxSfh6sYamYyzTb5VNx-xsYchcyzGIFhmqVaeaid_pDjiSwgGnT3BSxN0QtuiEgXUQL_hQ1oFvRIers_F4F8E5yDncCqECrowGM5Ys9_Vy0Sf55LCUOROQ-Zl6TZ"/>
+</div>
+<div>
+<h5 class="font-bold">Sarah Jenkins</h5>
+<p class="text-xs text-slate-500">Food Blogger</p>
+</div>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[400px] snap-center bg-background-light dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
+<p class="italic text-slate-600 dark:text-slate-300 mb-6">"Perfect for our anniversary. The atmosphere was intimate and the staff went above and beyond for us."</p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvDv7_AshHWLrK-SwAGlfg3g5xQVtcbpbabbPgvjwBeLMws5sMVD6Wy2qflb8_Ro06p664MBgJbWwQf11NkkXZ2MC-nEoACr65eA1uZ5RvEhX002-dcMKwu5Rre7xyScwMuAk3-qdEsBAYRJSKKQ71zzS8M3L-RvYn2okLgFJcjlVq9DIJLeGoRqcwTGkY2rEGJl0EKrCHALDS9Gf45viahrx2nZ98OzsAIJ68d-Z6Tp1d5LBnw2hh7Tsqp9vnRfiU6l0nluiv"/>
+</div>
+<div>
+<h5 class="font-bold">Michael Chen</h5>
+<p class="text-xs text-slate-500">Verified Diner</p>
+</div>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[400px] snap-center bg-background-light dark:bg-slate-900 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
+<p class="italic text-slate-600 dark:text-slate-300 mb-6">"Fresh ingredients and bold flavors. Truly excellence on a plate. I'll definitely be coming back for more!"</p>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full bg-slate-200 overflow-hidden">
+<img alt="Reviewer" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCh9ynCf7hI5jP4r5ADIvAsGvQ1FTLnP7N3yukdgvJteO9p9BaIb6-QuSut6eS1Hds4BfTzTsY5RDXbTT0mwd5hZlAoic7YQZd8zJrYtFMARS4JxAHlVwnKuJAqat1btAyzgYpQHH0DcLnAWp0S_iwRW0tXMp_6RfM74YIAUeNlj7yRF15kSUbxT8bVfslpOVA-AuwEdZo-TOaMNCv32LHoS5GWkL21fc31Zh4axzrSlrbamjA5uvHW93XybYvJ4bvXszGoIIk"/>
+</div>
+<div>
+<h5 class="font-bold">Jessica Thompson</h5>
+<p class="text-xs text-slate-500">Regular Customer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-background-light py-24 dark:bg-background-dark" id="branches">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="mb-16 flex flex-col items-center text-center">
+<h2 class="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 md:text-4xl">Visit Our Locations</h2>
+<p class="text-slate-600 dark:text-slate-400">Find the nearest GourmetBite experience near you.</p>
+</div>
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<h4 class="text-lg font-bold mb-2">Downtown Flagship</h4>
+<div class="flex items-start gap-2 text-slate-600 dark:text-slate-400 text-sm mb-4">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span>123 Culinary Ave, Suite 100<br/>City Center, NY 10001</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+<span>(555) 123-4567</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<h4 class="text-lg font-bold mb-2">Seaside Terrace</h4>
+<div class="flex items-start gap-2 text-slate-600 dark:text-slate-400 text-sm mb-4">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span>45 Ocean View Dr<br/>Bay Harbor, FL 33154</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+<span>(555) 987-6543</span>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+<h4 class="text-lg font-bold mb-2">Urban Garden</h4>
+<div class="flex items-start gap-2 text-slate-600 dark:text-slate-400 text-sm mb-4">
+<span class="material-symbols-outlined text-primary text-sm">location_on</span>
+<span>88 Green Way<br/>Austin, TX 78701</span>
+</div>
+<div class="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm">
+<span class="material-symbols-outlined text-primary text-sm">call</span>
+<span>(555) 246-8135</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-24 dark:bg-slate-950/50" id="contact">
+<div class="mx-auto max-w-7xl px-6 lg:px-12">
+<div class="grid lg:grid-cols-2 gap-16 items-start">
+<div>
+<h2 class="text-4xl font-extrabold mb-6">Make a Reservation</h2>
+<p class="text-slate-600 dark:text-slate-400 text-lg mb-8">Join us for a memorable dining experience. For groups larger than 8, please call us directly for special arrangements.</p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h5 class="font-bold">Opening Hours</h5>
+<p class="text-sm text-slate-600 dark:text-slate-400">Mon-Sun: 11:00 AM - 11:00 PM</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<h5 class="font-bold">Email Us</h5>
+<p class="text-sm text-slate-600 dark:text-slate-400">hello@gourmetbite.com</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-background-light dark:bg-slate-900 p-8 lg:p-10 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-800">
+<form class="grid gap-6">
+<div class="grid sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Name</label>
+<input class="w-full rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 focus:ring-primary focus:border-primary transition-all" placeholder="Your Name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Email</label>
+<input class="w-full rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 focus:ring-primary focus:border-primary transition-all" placeholder="Your Email" type="email"/>
+</div>
+</div>
+<div class="grid sm:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Date</label>
+<input class="w-full rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 focus:ring-primary focus:border-primary transition-all" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Guests</label>
+<select class="w-full rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 focus:ring-primary focus:border-primary transition-all">
+<option>2 People</option>
+<option>4 People</option>
+<option>6 People</option>
+<option>8 People</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-700 dark:text-slate-300">Message</label>
+<textarea class="w-full rounded-xl border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-3 focus:ring-primary focus:border-primary transition-all" placeholder="Any special requests?" rows="4"></textarea>
+</div>
+<button class="w-full rounded-xl bg-primary py-4 text-lg font-bold text-white shadow-xl shadow-primary/25 hover:bg-primary/90 transition-all active:scale-[0.98]" type="submit">
+                                Book Now
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<section class="px-6 py-20 lg:px-12 bg-white dark:bg-background-dark">
 <div class="mx-auto max-w-5xl overflow-hidden rounded-3xl bg-primary px-8 py-16 text-center shadow-2xl shadow-primary/30">
 <div class="relative z-10 flex flex-col items-center gap-8">
 <h2 class="text-3xl font-extrabold text-white md:text-5xl">Ready to Experience Excellence?</h2>
 <p class="max-w-xl text-lg text-white/90">Secure your table today and indulge in a world of flavors. Reservations fill up quickly for weekends!</p>
-<button class="rounded-full bg-white px-10 py-4 text-lg font-bold text-primary transition-all hover:scale-105 active:scale-95">
-                            Reserve a Table Now
-                        </button>
+<a class="rounded-full bg-white px-10 py-4 text-lg font-bold text-primary transition-all hover:scale-105 active:scale-95" href="#contact">
+                        Reserve a Table Now
+                    </a>
 </div>
 </div>
 </section>
 </main>
-<!-- Footer -->
 <footer class="border-t border-slate-100 bg-white py-12 dark:border-slate-800 dark:bg-background-dark">
 <div class="mx-auto max-w-7xl px-6 lg:px-12">
 <div class="flex flex-col items-center justify-between gap-8 md:flex-row">
@@ -170,14 +388,15 @@
 <span class="text-lg font-bold text-slate-900 dark:text-slate-100">GourmetBite</span>
 </div>
 <div class="flex flex-wrap justify-center gap-8 text-sm font-medium text-slate-500 dark:text-slate-400">
-<a class="hover:text-primary" href="#">Privacy Policy</a>
-<a class="hover:text-primary" href="#">Terms of Service</a>
-<a class="hover:text-primary" href="#">Social Media</a>
-<a class="hover:text-primary" href="#">Careers</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-primary transition-colors" href="#">Social Media</a>
+<a class="hover:text-primary transition-colors" href="#">Careers</a>
 </div>
 <p class="text-sm text-slate-400">© 2024 GourmetBite. All rights reserved.</p>
 </div>
 </div>
 </footer>
 </div>
+
 </body></html>
